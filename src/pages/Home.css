@@ -1,0 +1,411 @@
+.main-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.title-center {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.title-icon {
+  margin-right: 8px;
+  color: #7c4dff;
+}
+
+.api-info-card {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: white;
+  margin-bottom: 20px;
+}
+
+.api-info-card h3 {
+  color: #7c4dff;
+  margin-bottom: 10px;
+}
+
+.api-info-card ion-item {
+  --background: transparent;
+  --color: white;
+}
+
+.provider-status {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.provider-info {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+/* Preset Templates Section */
+.preset-section {
+  margin-bottom: 20px;
+}
+
+.preset-button {
+  --border-color: rgba(124, 77, 255, 0.5);
+  --color: #7c4dff;
+  height: 45px;
+}
+
+.input-section {
+  margin-bottom: 30px;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.prompt-input {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: white;
+  --border-radius: 25px;
+  --padding-start: 20px;
+  --padding-end: 80px;
+  --border-color: rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  height: 60px;
+}
+
+.input-icons {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.icon-button.listening {
+  background-color: rgba(255, 0, 0, 0.3);
+  color: #ff4444;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+  }
+}
+
+.generate-button {
+  --background: linear-gradient(45deg, #7c4dff, #9c27b0);
+  --border-radius: 25px;
+  height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: none;
+  margin: 20px 0;
+}
+
+.images-grid {
+  margin-top: 20px;
+}
+
+.image-card {
+  --background: rgba(255, 255, 255, 0.1);
+  --border-radius: 15px;
+  margin: 8px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-card {
+  --background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.image-content {
+  padding: 0;
+  position: relative;
+}
+
+.generated-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.generated-image:hover {
+  transform: scale(1.02);
+}
+
+.provider-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+}
+
+.download-fab,
+.edit-fab {
+  --background: rgba(0, 0, 0, 0.7);
+  --color: white;
+  --border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin: 8px;
+}
+
+.edit-fab {
+  --background: rgba(124, 77, 255, 0.8);
+}
+
+/* Gallery Styles */
+.gallery-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.gallery-grid {
+  padding: 10px;
+}
+
+.gallery-card {
+  --background: rgba(255, 255, 255, 0.1);
+  --border-radius: 15px;
+  margin: 5px 0;
+}
+
+.gallery-card-content {
+  padding: 10px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+}
+
+.gallery-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.action-button {
+  --color: rgba(255, 255, 255, 0.8);
+  width: 35px;
+  height: 35px;
+}
+
+.gallery-info {
+  text-align: center;
+}
+
+.gallery-prompt {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin: 5px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+/* Preset Templates Styles */
+.preset-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.category-filter {
+  display: flex;
+  gap: 8px;
+  padding: 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.category-button {
+  --border-radius: 20px;
+  height: 35px;
+  min-width: 80px;
+}
+
+.templates-grid {
+  padding: 0 10px;
+}
+
+.template-card {
+  --background: rgba(255, 255, 255, 0.1);
+  --border-radius: 15px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.template-card:active {
+  transform: scale(0.98);
+}
+
+.template-content {
+  padding: 15px;
+}
+
+.template-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.template-icon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.template-info {
+  flex: 1;
+}
+
+.template-title {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.template-category {
+  font-size: 10px;
+}
+
+.template-prompt {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Dark theme adjustments */
+ion-toolbar {
+  --background: #1a1a2e;
+  --color: white;
+}
+
+ion-loading {
+  --background: rgba(0, 0, 0, 0.8);
+  --color: white;
+}
+
+ion-toast {
+  --background: rgba(124, 77, 255, 0.9);
+  --color: white;
+}
+
+ion-segment {
+  --background: rgba(255, 255, 255, 0.1);
+  margin: 15px;
+  border-radius: 10px;
+}
+
+ion-segment-button {
+  --color: rgba(255, 255, 255, 0.7);
+  --color-checked: #7c4dff;
+  --background-checked: rgba(124, 77, 255, 0.2);
+}
+
+/* Light theme overrides */
+.light-theme .main-content {
+  --background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+}
+
+.light-theme .gallery-content,
+.light-theme .preset-content {
+  --background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+}
+
+.light-theme .api-info-card,
+.light-theme .image-card,
+.light-theme .gallery-card,
+.light-theme .template-card {
+  --background: rgba(0, 0, 0, 0.05);
+  --color: #000000;
+}
+
+.light-theme .prompt-input {
+  --background: rgba(0, 0, 0, 0.05);
+  --color: #000000;
+  --border-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-theme .icon-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-theme .icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.light-theme .gallery-prompt {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.light-theme .template-prompt {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.light-theme .empty-gallery {
+  color: rgba(0, 0, 0, 0.6);
+}

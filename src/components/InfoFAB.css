@@ -1,0 +1,33 @@
+/* Info FAB Styles */
+.info-fab {
+  --background: linear-gradient(45deg, #2196f3, #1976d2);
+  --color: white;
+  --border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+  transition: all 0.3s ease;
+}
+
+.info-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.6);
+}
+
+.info-fab ion-icon {
+  font-size: 24px;
+}
+
+/* Action Sheet Customization */
+ion-action-sheet {
+  --background: var(--ion-background-color);
+  --color: var(--ion-text-color);
+}
+
+ion-action-sheet .action-sheet-button {
+  --color: var(--ion-text-color);
+}
+
+ion-action-sheet .action-sheet-button.action-sheet-cancel {
+  --color: #f44336;
+}

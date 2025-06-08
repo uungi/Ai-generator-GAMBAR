@@ -1,0 +1,61 @@
+/* Privacy Page Styles */
+.privacy-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.privacy-header {
+  --background: linear-gradient(45deg, #4caf50, #2e7d32);
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.privacy-hero {
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+}
+
+.privacy-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.privacy-hero h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: white;
+}
+
+.privacy-subtitle {
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  opacity: 0.9;
+}
+
+.last-updated {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.privacy-content h3 {
+  color: #7c4dff;
+  margin: 20px 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.privacy-content h4 {
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+/* Light theme adjustments */
+.light-theme .privacy-content {
+  --background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+}
+
+.light-theme .privacy-content h3 {
+  color: #7c4dff;
+}
