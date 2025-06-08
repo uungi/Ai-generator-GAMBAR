@@ -16,7 +16,10 @@ export const AdBanner: React.FC<AdBannerProps> = ({ position = "bottom", classNa
 
   useEffect(() => {
     const initAds = async () => {
-      if (adAvailable) {
+      const isAvailable = AdMobService.isAdMobAvailable()
+      setAdAvailable(isAvailable)
+
+      if (isAvailable) {
         try {
           await AdMobService.initialize()
           await AdMobService.showBanner()
@@ -31,19 +34,16 @@ export const AdBanner: React.FC<AdBannerProps> = ({ position = "bottom", classNa
     initAds()
 
     return () => {
-      // Clean up ads when component unmounts
       if (adAvailable) {
         AdMobService.hideBanner().catch(console.error)
       }
     }
-  }, [adAvailable]) // Add adAvailable to dependency array
+  }, [adAvailable])
 
-  // If ads are available, we don't need to show a placeholder as AdMob will display the actual ad
   if (adAvailable && !showPlaceholder) {
     return null
   }
 
-  // Show placeholder ad for web or when real ads fail to load
   return (
     <IonCard className={`ad-placeholder ${position} ${className}`}>
       <IonCardContent className="ad-content">
