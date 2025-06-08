@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import {
   IonContent,
   IonHeader,
@@ -69,7 +69,8 @@ const Home: React.FC = () => {
   const [providerInfo, setProviderInfo] = useState<ProviderInfo | null>(null)
   const [providerStatus, setProviderStatus] = useState<any>(null)
   const [showApiInfo, setShowApiInfo] = useState(false)
-  const [adCount, setAdCount] = useState(0)
+  // Remove this line completely:
+  // const [adCount, setAdCount] = useState(0)
 
   // Gallery/History States
   const [showGallery, setShowGallery] = useState(false)
@@ -81,20 +82,22 @@ const Home: React.FC = () => {
 
   // Voice Recognition States
   const [isListening, setIsListening] = useState(false)
-  const [speechService] = useState(() => new SpeechService())
+  // Add useCallback for speechService to make it stable
+  const speechService = useMemo(() => new SpeechService(), [])
 
   // Image Editor States
   const [showImageEditor, setShowImageEditor] = useState(false)
   const [editingImage, setEditingImage] = useState<GeneratedImage | null>(null)
 
   // Initialize theme on component mount
+  // Update the useEffect to include speechService properly
   useEffect(() => {
     ThemeService.initTheme()
     checkProviderStatus()
     loadGalleryImages()
     console.log("🔧 API Configuration:", getApiInfo())
     console.log("🎤 Speech Support:", speechService.getBrowserSupport())
-  }, [])
+  }, [speechService])
 
   const checkProviderStatus = async () => {
     try {
@@ -219,6 +222,7 @@ const Home: React.FC = () => {
     setShowToast(true)
   }
 
+  // Update the generateImages function to remove adCount logic
   const generateImages = async () => {
     if (!prompt.trim()) {
       setToastMessage("Silakan masukkan deskripsi gambar")
@@ -317,15 +321,11 @@ const Home: React.FC = () => {
         }
       }
 
-      // Show interstitial ad every 3 generations
-      setAdCount((prevCount) => {
-        const newCount = prevCount + 1
-        if (newCount >= 3) {
-          showInterstitialAd()
-          return 0
-        }
-        return newCount
-      })
+      // Show interstitial ad occasionally (every few generations)
+      if (Math.random() < 0.3) {
+        // 30% chance to show ad
+        showInterstitialAd()
+      }
 
       setShowToast(true)
     } catch (error) {

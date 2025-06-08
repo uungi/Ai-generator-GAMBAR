@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import {
   IonModal,
   IonHeader,
@@ -54,28 +54,20 @@ export const ImageEditor: React.FC<ImageEditorProps> = ({ isOpen, onClose, image
   })
   const [originalImage, setOriginalImage] = useState<HTMLImageElement | null>(null)
 
-  useEffect(() => {
-    if (isOpen && imageUrl) {
-      loadImage()
-    }
-  }, [isOpen, imageUrl])
+  // Add useCallback for loadImage function
+  const loadImage = useCallback(() => {
+    if (!imageUrl) return
 
-  useEffect(() => {
-    if (originalImage) {
-      applyFilters()
-    }
-  }, [settings, originalImage])
-
-  const loadImage = () => {
     const img = new Image()
     img.crossOrigin = "anonymous"
     img.onload = () => {
       setOriginalImage(img)
     }
     img.src = imageUrl
-  }
+  }, [imageUrl])
 
-  const applyFilters = () => {
+  // Add useCallback for applyFilters function
+  const applyFilters = useCallback(() => {
     if (!originalImage || !canvasRef.current) return
 
     const canvas = canvasRef.current
@@ -97,15 +89,28 @@ export const ImageEditor: React.FC<ImageEditorProps> = ({ isOpen, onClose, image
 
     // Apply filters
     ctx.filter = `
-      brightness(${settings.brightness}%) 
-      contrast(${settings.contrast}%) 
-      saturate(${settings.saturation}%)
-    `
+    brightness(${settings.brightness}%) 
+    contrast(${settings.contrast}%) 
+    saturate(${settings.saturation}%)
+  `
 
     // Draw image
     ctx.drawImage(originalImage, 0, 0)
     ctx.restore()
-  }
+  }, [originalImage, settings])
+
+  // Update the useEffect calls
+  useEffect(() => {
+    if (isOpen && imageUrl) {
+      loadImage()
+    }
+  }, [isOpen, imageUrl, loadImage])
+
+  useEffect(() => {
+    if (originalImage) {
+      applyFilters()
+    }
+  }, [originalImage, applyFilters])
 
   const resetSettings = () => {
     setSettings({

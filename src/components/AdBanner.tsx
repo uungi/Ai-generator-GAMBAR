@@ -16,10 +16,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ position = "bottom", classNa
 
   useEffect(() => {
     const initAds = async () => {
-      const isAvailable = AdMobService.isAdMobAvailable()
-      setAdAvailable(isAvailable)
-
-      if (isAvailable) {
+      if (adAvailable) {
         try {
           await AdMobService.initialize()
           await AdMobService.showBanner()
@@ -39,7 +36,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({ position = "bottom", classNa
         AdMobService.hideBanner().catch(console.error)
       }
     }
-  }, [])
+  }, [adAvailable]) // Add adAvailable to dependency array
 
   // If ads are available, we don't need to show a placeholder as AdMob will display the actual ad
   if (adAvailable && !showPlaceholder) {
