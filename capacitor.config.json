@@ -1,7 +1,7 @@
 {
   "appId": "com.aiimageapp.app",
   "appName": "AI Image Generator",
-  "webDir": "build",
+  "webDir": "www",
   "bundledWebRuntime": false,
   "plugins": {
     "AdMob": {
